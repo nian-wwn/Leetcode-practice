@@ -60,7 +60,7 @@ public class calcEquation {
         public UnionFind(int n) {
             this.parent = new int[n];
             this.weight = new double[n];
-
+            //初始化
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
                 weight[i] = 1.0d;
@@ -100,3 +100,4 @@ public class calcEquation {
         }
     }
 }
+
