@@ -1,4 +1,11 @@
 package Graph;
+/**
+ * @title 1202. 交换字符串中的元素
+ * 给你一个字符串 s，以及该字符串中的一些「索引对」数组 pairs，其中 pairs[i] = [a, b] 表示字符串中的两个索引（编号从 0 开始）。
+ * 你可以 任意多次交换 在 pairs 中任意一对索引处的字符。
+ * 返回在经过若干次交换后，s 可以变成的按字典序最小的字符串。
+ *
+ */
 
 import java.util.HashMap;
 import java.util.List;
@@ -44,7 +51,6 @@ public class smallestStringWithSwaps {
 
     private class UnionFind {
         private int[] parent;
-
         /**
          * 指向父节点的权值
          */
@@ -56,10 +62,10 @@ public class smallestStringWithSwaps {
             //初始化
             for (int i = 0; i < n; i++) {
                 parent[i] = i;
-                weight[i] = 1.0d;
+                rank[i] = 1;
             }
         }
-
+        //合并
         public void union(int x, int y) {
             int rootX = find(x);
             int rootY = find(y);
@@ -79,21 +85,13 @@ public class smallestStringWithSwaps {
         /**
          * 路径压缩
          */
+        //查询
         public int find(int x) {
             if (x != parent[x]) {
-                parent[x] = find(parent[x]);
+                parent[x] = find(parent[x]);//将每个节点的父节点设为根节点
             }
             return parent[x];
         }
 
-        public double isConnected(int x, int y) {
-            int rootX = find(x);
-            int rootY = find(y);
-            if (rootX == rootY) {
-                return weight[x] / weight[y];
-            } else {
-                return -1.0d;
-            }
-        }
     }
 }
