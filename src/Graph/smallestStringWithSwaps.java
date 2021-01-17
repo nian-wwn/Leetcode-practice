@@ -46,7 +46,6 @@ public class smallestStringWithSwaps {
         }
         return stringBuilder.toString();
 
-
     }
 
     private class UnionFind {
@@ -92,6 +91,5 @@ public class smallestStringWithSwaps {
             }
             return parent[x];
         }
-
     }
 }
